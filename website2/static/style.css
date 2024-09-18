@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background: var(--bg-nav);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-item {
+    cursor: pointer;
+    padding: 10px;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+}
+
+.nav-item:hover {
+    transform: scale(1.1);
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    font-size: 1.5rem;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.controls label, .controls select {
+    margin: 0 10px;
+    font-size: 1rem;
+}
+
+#chart {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.light-mode {
+    --bg-nav: #f0f0f0;
+    --bg-body: #ffffff;
+    --color-text: #000000;
+}
+
+.dark-mode {
+    --bg-nav: #333333;
+    --bg-body: #222222;
+    --color-text: #ffffff;
+}
+
+body.light-mode {
+    background-color: var(--bg-body);
+    color: var(--color-text);
+}
+
+body.dark-mode {
+    background-color: var(--bg-body);
+    color: var(--color-text);
+}
+
+.price-display {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: var(--color-text);
+}

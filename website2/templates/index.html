@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Crypto Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div id="nav">
+        <div class="nav-item" onclick="loadChart('BTC')">Bitcoin</div>
+        <div class="nav-item" onclick="loadChart('ETH')">Ethereum</div>
+        <div class="nav-item" onclick="loadChart('DOGE')">Dogecoin</div>
+        <button id="mode-toggle">🌙</button>
+    </div>
+
+    <div class="controls">
+        <label for="period">Period:</label>
+        <select id="period" onchange="updateChart()">
+            <option value="1d" selected>1 Day</option>
+            <option value="1mo">30 Days</option>
+            <option value="3mo">90 Days</option>
+            <option value="1y">1 Year</option>
+        </select>
+
+        <label for="interval">Interval:</label>
+        <select id="interval" onchange="updateChart()">
+            <option value="15m" selected>15 Minutes</option>
+            <option value="1h">1 Hour</option>
+            <option value="1d">1 Day</option>
+            <option value="1wk">1 Week</option>
+        </select>
+    </div>
+
+    <div id="chart"></div>
+    
+    <!-- Section to display the current price -->
+    <div id="price-display" class="price-display">
+        Current Price: Loading...
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
