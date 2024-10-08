@@ -1,15 +1,16 @@
 let currentTicker = 'BTC';
 
+// Function to toggle sidebar visibility and shift content
+function toggleSidebar() {
+    document.body.classList.toggle('sidebar-open');
+}
+
 // Load the saved theme from localStorage on page load
 function loadTheme() {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
         document.body.classList.add(savedTheme);
-        // Set the button icon based on the saved theme
         document.getElementById('mode-toggle').textContent = savedTheme === 'dark-mode' ? '🌞' : '🌙';
-    } else {
-        // Default to light mode if no theme is saved
-        document.body.classList.add('light-mode');
     }
 }
 
@@ -42,7 +43,6 @@ function updateChart() {
     fetch(`/chart?ticker=${currentTicker}&period=${period}&interval=${interval}`)
         .then(response => response.json())
         .then(data => {
-            // Update the chart
             const chartElement = document.getElementById('chart');
             Plotly.react(chartElement, JSON.parse(data.chart).data, JSON.parse(data.chart).layout);
 
